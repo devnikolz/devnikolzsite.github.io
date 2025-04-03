@@ -14,7 +14,7 @@ body {
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("../img/wallpaperflare.com_wallpaper\ \(1\).jpg") center center no-repeat;
+  background: #040404 url("../img/dark-space.jpg") center center no-repeat;
   background-size: cover; /* This ensures the background image covers the entire element */
   left: 0;
   right: 0;
