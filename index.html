@@ -36,30 +36,32 @@
     <div class="container">
 
       <h1><a href="index.html">Nikolajs Lozko</a></h1>
-      <h2>I'm a Graduate in <span>Computer Science</span> from University College Cork</h2>
+      <h2>Computer Science Graduate from <span>University College Cork</span></h2>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link active" href="#about">About</a></li>
+          <li><a class="nav-link" href="#certificates">Certificates</a></li>
+          <li><a class="nav-link" href="#game-platforms">Game Development</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#services">Services</a></li>
-          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link" href="#portfolio">University Projects</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/nikolajs-lozko-221230194/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        <a href="https://github.com/devnikolz" class="linkedin"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/nikolajs-lozko-221230194/" class="linkedin" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/devnikolz" class="linkedin" title="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://play.unity.com/en/user/f21778d1-4ed9-43af-9dc5-d70fc2bad637" class="linkedin" title="Unity Play" target="_blank"><i class="bi bi-controller"></i></a>
+        <a href="https://www.credly.com/users/nikolajs-lozko" class="linkedin" title="Credly" target="_blank"><i class="bi bi-award"></i></a>
       </div>
 
     </div>
   </header><!-- End Header -->
 
   <!-- ======= About Section ======= -->
-  <section id="about" class="about">
+  <section id="about" class="about section-show">
 
     <!-- ======= About Me ======= -->
     <div class="about-me container">
@@ -84,16 +86,16 @@
                   </div>
                   <div class="col-lg-6 col-md-6">
                       <ul>
-                          <li><i class="bi bi-house-door"></i> <strong>City:</strong> Killarney, Ireland</li>
+                          <li><i class="bi bi-house-door"></i> <strong>City:</strong> Cork, Ireland</li>
                           <li><i class="bi bi-book"></i> <strong>Degree:</strong> Computer Science</li>
                       </ul>
                   </div>
               </div>
               <div class="description-card">
                 <ul class="description-list">
-                  <li>Computer Science graduate with hands-on experience in full-stack development using React.js, Python, and SQL.</li>
-                  <li>Strong focus on building scalable, data-driven applications, especially in reporting tools and analytics platforms.</li>
-                  <li>Currently working at KPMG, contributing to internal financial tools and microservice-based systems that improved user productivity by 60%.</li>
+                  <li>Computer Science graduate with expertise in full-stack development using React.js, Python, and SQL.</li>
+                  <li>Certified Unity Developer with Unity Essentials and Unity Junior Programmer certifications, actively building games and publishing on Unity Play.</li>
+                  <li>Previously worked at KPMG as a Full-Stack Developer, contributing to internal financial tools and microservice-based systems that improved user productivity by 60%.</li>
                   <li>Previously interned at TEAMWORK, where I led the development and release of a company-wide iOS chat app used by over 12,000 users.</li>
                   <li>Worked with PFH Technology Group to support cybersecurity operations for the HSE and Irish Defence Forces.</li>
                   <li>Built 'YoungDeveloperHub', a peer-driven cloud platform for knowledge sharing, exercises, and job discovery.</li>
@@ -104,7 +106,7 @@
 
             <style>
                 .description-card {
-                    border: 1px solid #19D26E;
+                    border: 1px solid #3b82f6;
                     border-radius: 5px;
                     padding: 15px;
                     background-color: #000;
@@ -135,13 +137,13 @@
        <!-- Skill Buttons -->
        <div class="row mb-3">
         <div class="col-lg-6 col-md-6">
-            <button class="btn btn-link w-100 skill-btn" type="button" data-bs-toggle="collapse" data-bs-target="#technicalSkills" aria-expanded="false">
-                <h4>Technical Skills</h4>
+            <button class="btn btn-link w-100 skill-btn" type="button" data-bs-toggle="collapse" data-bs-target="#technicalSkills" aria-expanded="false" aria-controls="technicalSkills">
+                <h4>Technical Skills <i class="bi bi-chevron-down skill-chevron"></i></h4>
             </button>
         </div>
         <div class="col-lg-6 col-md-6">
-            <button class="btn btn-link w-100 skill-btn" type="button" data-bs-toggle="collapse" data-bs-target="#nonTechnicalSkills" aria-expanded="false">
-                <h4>Non-Technical Skills</h4>
+            <button class="btn btn-link w-100 skill-btn" type="button" data-bs-toggle="collapse" data-bs-target="#nonTechnicalSkills" aria-expanded="false" aria-controls="nonTechnicalSkills">
+                <h4>Non-Technical Skills <i class="bi bi-chevron-down skill-chevron"></i></h4>
             </button>
         </div>
     </div>
@@ -152,8 +154,43 @@
 }
 .skill-btn {
     text-decoration: none !important;
-    color: #19D26E !important;
+    color: #3b82f6 !important;
     margin-bottom: 15px; /* Space between button and the content below */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.skill-btn:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+}
+
+.skill-btn[aria-expanded="true"] {
+    background-color: rgba(59, 130, 246, 0.15);
+    border-color: #3b82f6;
+}
+
+.skill-btn h4 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.skill-chevron {
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.skill-btn[aria-expanded="true"] .skill-chevron {
+    transform: rotate(180deg);
 }
 .icon-box {
     display: flex;            /* Enable Flexbox */
@@ -188,6 +225,20 @@
               <div class="icon-box" style="color: #ffa76e;">
                   <i class="bi bi-terminal-fill"></i>
                   <h3>JavaScript</h3>
+              </div>
+          </div>
+
+          <!-- Game Development -->
+          <div class="col-lg-3 col-md-4">
+              <div class="icon-box" style="color: #ff6b9d;">
+                  <i class="bi bi-controller"></i>
+                  <h3>Unity Game Development</h3>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-4">
+              <div class="icon-box" style="color: #9c27b0;">
+                  <i class="bi bi-code-slash"></i>
+                  <h3>C# Programming</h3>
               </div>
           </div>
 
@@ -239,7 +290,7 @@
       <div class="row mt-3">
           <!-- Leadership & Management -->
           <div class="col-lg-3 col-md-4">
-              <div class="icon-box" style="color: #19D26E;">
+              <div class="icon-box" style="color: #3b82f6;">
                   <i class="bi bi-person-badge-fill"></i>
                   <h3>Leadership</h3>
               </div>
@@ -270,55 +321,267 @@
 
 
 
-    <!-- ======= Counts ======= -->
-    <div class="counts container">
-      <div class="row">
-
-          <div class="col-lg-3 col-md-6">
-              <div class="count-box">
-                  <i class="bi bi-code-square icon"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Languages Proficient</p>
-              </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-              <div class="count-box">
-                  <i class="bi bi-box-seam icon"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Major Projects</p>
-              </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-              <div class="count-box">
-                  <i class="bi bi-award icon"></i>
-                  <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
-                  <p>Awards Received</p>
-              </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-                <i class="bi bi-app icon"></i>  <!-- Adjusted the icon to represent apps -->
-                <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Apps on App Store</p>
-            </div>
-        </div>
-
-      </div>
-
-      <style>
-          .icon {
-              font-size: 1.5em;
-          }
-      </style>
-
-  </div>
 
   </section>
 
   <!-- End About Section -->
+
+  <!-- ======= Certificates Section ======= -->
+  <section id="certificates" class="certificates">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Certificates</h2>
+        <p>Unity Certifications</p>
+      </div>
+
+      <div class="row">
+        <!-- Unity Essentials Certificate -->
+        <div class="col-lg-4 col-md-6 certificate-item">
+          <div class="certificate-wrap">
+            <div class="certificate-info">
+              <h4>Unity Essentials</h4>
+              <p>Unity Technologies</p>
+              <p class="certificate-date">Issued: January 13, 2026</p>
+              <div class="certificate-links">
+                <a href="assets/certificates/UnityEssentials_Badge20260113-30-2f836i.pdf" target="_blank" class="btn-certificate" title="View Certificate">
+                  <i class="bi bi-file-earmark-pdf"></i> View Certificate
+                </a>
+                <a href="https://www.credly.com/go/K9gpd0Oe" target="_blank" class="btn-certificate" title="Verify on Credly">
+                  <i class="bi bi-award"></i> Verify
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unity Junior Programmer Certificate -->
+        <div class="col-lg-4 col-md-6 certificate-item">
+          <div class="certificate-wrap">
+            <div class="certificate-info">
+              <h4>Unity Junior Programmer</h4>
+              <p>Unity Technologies</p>
+              <p class="certificate-date">Issued: January 13, 2026</p>
+              <div class="certificate-links">
+                <a href="assets/certificates/UnityJuniorProgrammer_Badge20260113-30-k77s8n.pdf" target="_blank" class="btn-certificate" title="View Certificate">
+                  <i class="bi bi-file-earmark-pdf"></i> View Certificate
+                </a>
+                <a href="https://www.credly.com/go/WqPdBlJI" target="_blank" class="btn-certificate" title="Verify on Credly">
+                  <i class="bi bi-award"></i> Verify
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder for Third Certificate (Future) -->
+        <!-- To add a third certificate, uncomment and update the following:
+        <div class="col-lg-4 col-md-6 certificate-item">
+          <div class="certificate-wrap">
+            <div class="certificate-info">
+              <h4>Certificate Name</h4>
+              <p>Issuing Organization</p>
+              <p class="certificate-date">Issued: Date</p>
+              <div class="certificate-links">
+                <a href="assets/certificates/certificate-filename.pdf" target="_blank" class="btn-certificate" title="View Certificate">
+                  <i class="bi bi-file-earmark-pdf"></i> View Certificate
+                </a>
+                <a href="verification-url" target="_blank" class="btn-certificate" title="Verify">
+                  <i class="bi bi-award"></i> Verify
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+
+    </div>
+
+    <style>
+      .certificates {
+        padding: 80px 0;
+      }
+
+      .certificate-item {
+        margin-bottom: 30px;
+      }
+
+      .certificate-wrap {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 30px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        height: 100%;
+      }
+
+      .certificate-wrap:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: #3b82f6;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+      }
+
+      .certificate-info h4 {
+        color: #3b82f6;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .certificate-info p {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 5px;
+      }
+
+      .certificate-date {
+        color: rgba(255, 255, 255, 0.6) !important;
+        font-size: 14px;
+        font-style: italic;
+      }
+
+      .certificate-links {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn-certificate {
+        padding: 10px 20px;
+        background-color: #3b82f6;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+      }
+
+      .btn-certificate:hover {
+            background-color: #60a5fa;
+            transform: translateY(-2px);
+        transform: scale(1.05);
+        color: white;
+      }
+
+    </style>
+  </section>
+  <!-- End Certificates Section -->
+
+  <!-- ======= Game Development Platforms Section ======= -->
+  <section id="game-platforms" class="game-platforms">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Game Development</h2>
+        <p>Platforms & Links</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="game-link-card">
+            <i class="bi bi-controller game-link-icon"></i>
+            <h4>Unity Play</h4>
+            <p>Check out my published projects</p>
+            <a href="https://play.unity.com/en/user/f21778d1-4ed9-43af-9dc5-d70fc2bad637" target="_blank" class="btn-game-link">
+              View Games <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="game-link-card coming-soon">
+            <i class="bi bi-gamepad game-link-icon"></i>
+            <h4>itch.io</h4>
+            <p>Coming Soon</p>
+            <span class="btn-game-link disabled">Coming Soon</span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="game-link-card">
+            <i class="bi bi-award game-link-icon"></i>
+            <h4>Credly Profile</h4>
+            <p>View all my certifications</p>
+            <a href="https://www.credly.com/users/nikolajs-lozko" target="_blank" class="btn-game-link">
+              View Profile <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <style>
+      .game-platforms {
+        padding: 80px 0;
+      }
+
+      .game-link-card {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        transition: all 0.3s ease;
+        height: 100%;
+        border: 2px solid transparent;
+      }
+
+      .game-link-card:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: #3b82f6;
+        transform: translateY(-5px);
+      }
+
+      .game-link-card.coming-soon {
+        opacity: 0.7;
+      }
+
+      .game-link-icon {
+        font-size: 48px;
+        color: #3b82f6;
+        margin-bottom: 20px;
+      }
+
+      .game-link-card h4 {
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: 22px;
+      }
+
+      .game-link-card p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 20px;
+      }
+
+      .btn-game-link {
+        padding: 12px 24px;
+        background-color: #3b82f6;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-game-link:hover {
+        background-color: #60a5fa;
+        transform: scale(1.05);
+        color: white;
+      }
+
+      .btn-game-link.disabled {
+        background-color: rgba(255, 255, 255, 0.2);
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    </style>
+  </section>
+  <!-- End Game Development Platforms Section -->
 
   <!-- ======= Resume Section ======= -->
   <section id="resume" class="resume">
@@ -331,13 +594,13 @@
         </div>
 
         <!-- Download Button -->
-        <h3><a href="https://www.dropbox.com/scl/fi/wncbuqyq09xk54d242joi/Nikolajs_Lozko_CV_2025.pdf?rlkey=rfd7cs65erazcvtvg240pou1j&st=g891oqpo&dl=0" class="btn-custom" download="Nikolajs_Lozko_CV_2025.pdf">Download Full Resume</a></h3>
+        <h3><a href="Nikolajs_Lozko_CV_2025.pdf" class="btn-custom" download="Nikolajs_Lozko_CV_2025.pdf">Download Full Resume</a></h3>
     </div>
 
     <style>
         .btn-custom {
             padding: 10px 20px;
-            background-color: #19D26E;
+            background-color: #3b82f6;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -345,7 +608,8 @@
         }
 
         .btn-custom:hover {
-            background-color: #16bf61; /* Slightly darker green for hover */
+            background-color: #60a5fa;
+            transform: translateY(-2px);
         }
     </style>
        <!-- End Download Button -->
@@ -363,7 +627,7 @@
             <style>
                 .btn-custom {
                     padding: 10px 20px;
-                    background-color: #19D26E;
+                    background-color: #3b82f6;
                     color: white;
                     text-decoration: none;
                     border-radius: 5px;
@@ -371,7 +635,8 @@
                 }
 
                 .btn-custom:hover {
-                    background-color: #16bf61; /* Slightly darker green for hover */
+                    background-color: #60a5fa;
+            transform: translateY(-2px);
                 }
             </style>
 
@@ -381,14 +646,14 @@
           <h3 class="resume-title">Professional Experience</h3>
           <div class="resume-item">
             <h4>Software Engineer Full Stack</h4>
-            <h5>Aug 2023 - Present</h5>
-            <p><em>Dublin, Ireland</em></p>
+            <h5>Aug 2023 - July 2025</h5>
+            <p><em>KPMG, Dublin, Ireland</em></p>
             <ul>
               <li>Developed scalable financial reporting tools using React, Python, and SQL.</li>
               <li>Integrated microservices as part of a team to boost performance and productivity by 60%.</li>
               <li>Collaborated with cross-functional teams to deliver high-impact, secure features.</li>
             </ul>
-            </div>s
+          </div>
 
           <div class="resume-item">
             <h4>Software Engineer Intern</h4>
@@ -419,76 +684,14 @@
     </div>
   </section><!-- End Resume Section -->
 
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>My Services</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-layer"></i></div>
-            <h4>Full-Stack Applications</h4>
-            <p>Seamlessly integrating front-end and back-end components to deliver dynamic, efficient, and user-friendly solutions tailored to meet specific business needs.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-cloud"></i></div>
-            <h4>Cloud Services</h4>
-            <p>Set up and manage cloud solutions for businesses using platforms like AWS, Google Cloud, or Azure.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-mobile"></i></div>
-            <h4>Mobile Development</h4>
-            <p>Develop native or cross-platform mobile applications tailored to clients' needs.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-shopping-bag"></i></div>
-            <h4>E-commerce Solutions</h4>
-            <p>Set up and maintain online stores using platforms like Shopify, WooCommerce, or custom solutions.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-layout"></i></div>
-            <h4>Content Management Systems (CMS)</h4>
-            <p>Set up and customize CMS platforms like WordPress, Joomla, or Drupal for clients.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-palette"></i></div>
-            <h4>>UI/UX Design</h4>
-            <p>Design user interfaces and ensure a good user experience on platforms or applications.</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Services Section -->
 
   <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio">
     <div class="container">
 
         <div class="section-title">
-            <h2>Portfolio</h2>
-            <p>My Work</p>
+            <h2>University Projects</h2>
+            <p>Academic Work</p>
         </div>
 
         <div class="row">
@@ -502,26 +705,26 @@
             </div>
         </div>
 
-        <div class="row portfolio-container">
+        <div class="row portfolio-container justify-content-center">
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="col-lg-5 col-md-6 portfolio-item filter-app mb-4">
                 <div class="portfolio-wrap">
                     <img src="assets/img/fypdoc.png" class="img-fluid portfolio-image" alt="">
                     <div class="portfolio-info">
-                        <h4>Community cloud for knowledge/skill sharing</h4>
+                        <h4>Community Cloud for Knowledge/Skill Sharing</h4>
                         <p>Full-Stack App with Cloud Services</p>
                         <div class="portfolio-links">
                             <a href="assets/img/fyphome.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="YoungDeveloperHub is a cloud-based platform designed to aid students in honing both technical and non-technical skills, including programming and teamwork.
                             The platform provides a rich learning environment with diverse resources like interactive exercises, lessons, and job opportunities, all contributed by peers in their respective fields. It features a personalized dashboard, a social community for interaction, and a mechanism to
                             suggest topics to the admin. Addressing the limitations of traditional learning and the abundance of irrelevant online content, YoungDeveloperHub uses cloud technology for vast storage, real-time data processing, and enhanced collaboration capabilities. This ensures students worldwide
                             receive a tailored, comprehensive learning experience in a secure setting, fostering their growth as learners and developers."><i class="bx bx-plus"></i></a>
-                            <a href="https://www.dropbox.com/scl/fi/bh1xadxbj7hylzryf4v8b/Community_cloud_for_knowledge_and_skill_sharing-copy.pdf?rlkey=1whec8nocac3tsn2cn43t1m00&dl=0" class="btn-custom" download="YourDocumentName.pdf">Download PDF</a>
+                            <a href="Community_cloud_for_knowledge_and_skill_sharing%20%20copy.pdf" class="btn-custom" download="Community_cloud_project.pdf">Download PDF</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="col-lg-5 col-md-6 portfolio-item filter-web mb-4">
                 <div class="portfolio-wrap">
                     <img src="assets/img/cryptofolio.png" class="img-fluid portfolio-image" alt="">
                     <div class="portfolio-info">
@@ -530,26 +733,13 @@
                         <div class="portfolio-links">
                             <a href="assets/img/crypto.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Over recent decades, technology-driven markets like cryptocurrency have emerged and expanded significantly. Since its 2009 inception, over 14 million Bitcoins circulate today. Platforms like Binance and Coinbase simplify cryptocurrency transactions for various stakeholders, including merchants, consumers, developers, investors, financial institutions, and regulators. This document will discuss the rising interest in cryptocurrency and the project's objective: to design a user-friendly system to navigate and manage digital currencies, facilitate transactions, and introduce the concept of Non-Fungible Tokens (NFTs). Regenerate
                             "><i class="bx bx-plus"></i></a>
-                            <a href="https://www.dropbox.com/scl/fi/zp76zkl1ifbctbuefi0pn/annotated-CS3305-Team7-D1-1.docx.pdf?rlkey=yndfsc15077rmntejdzrjl7ti&dl=0" class="btn-custom" download="YourWeb3DocumentName.pdf">Download PDF</a>
+                            <a href="annotated-CS3305-Team7-D1-1.docx.pdf" class="btn-custom" download="Cryptocurrency_Management_System.pdf">Download PDF</a>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-             <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-      <div class="portfolio-wrap">
-          <img src="assets/img/curtains.jpg" class="img-fluid portfolio-image" alt="">
-          <div class="portfolio-info">
-              <h4>Coming Soon</h4>
-              <p>More will be uploaded</p>
-              <div class="portfolio-links">
-                  <!-- <a href="" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a> -->
-                  <!-- <a href="" class="btn-custom" download="YourWeb3DocumentName.pdf">Download PDF</a> -->
-              </div>
-          </div>
-      </div>
-  </div>
 
 
         </div>
@@ -561,7 +751,7 @@
     <style>
         .btn-custom {
             padding: 10px 20px;
-            background-color: #19D26E;
+            background-color: #3b82f6;
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -570,13 +760,15 @@
         }
 
         .btn-custom:hover {
-            background-color: #16bf61; /* Slightly darker green for hover */
+            background-color: #60a5fa;
+            transform: translateY(-2px);
         }
 
         .portfolio-image {
-            width: 100%;   /* Ensuring width fills parent */
-            height: 700px; /* Adjust this value based on your preferred height */
-            object-fit: cover; /* Ensures image covers the specified width and height without distortion */
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
         }
     </style>
 </section>
@@ -700,8 +892,8 @@
         <div class="col-md-6 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Killarney, Ireland</p>
+            <h3>Location</h3>
+            <p>Cork, Ireland</p>
           </div>
         </div>
 

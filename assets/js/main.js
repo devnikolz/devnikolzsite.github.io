@@ -1,4 +1,3 @@
-
 (function() {
   "use strict";
 
@@ -6,147 +5,160 @@
    * Easy selector helper function
    */
   const select = (el, all = false) => {
-    el = el.trim()
+    el = el.trim();
     if (all) {
-      return [...document.querySelectorAll(el)]
+      return [...document.querySelectorAll(el)];
     } else {
-      return document.querySelector(el)
+      return document.querySelector(el);
     }
-  }
+  };
 
   /**
    * Easy event listener function
    */
   const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-
+    let selectEl = select(el, all);
     if (selectEl) {
       if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
+        selectEl.forEach(e => e.addEventListener(type, listener));
       } else {
-        selectEl.addEventListener(type, listener)
+        selectEl.addEventListener(type, listener);
       }
     }
-  }
+  };
 
   /**
-   * Scrolls to an element with header offset
+   * Scrolls to top smoothly
    */
   const scrollto = (el) => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
-    })
-  }
+    });
+  };
 
   /**
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+    select('#navbar').classList.toggle('navbar-mobile');
+    this.classList.toggle('bi-list');
+    this.classList.toggle('bi-x');
+  });
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Navigation click handler (desktop + mobile)
    */
   on('click', '#navbar .nav-link', function(e) {
-    let section = select(this.hash)
+    let section = select(this.hash);
     if (section) {
-      e.preventDefault()
+      e.preventDefault();
 
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
+      let navbar = select('#navbar');
+      let header = select('#header');
+      let sections = select('section', true);
+      let navlinks = select('#navbar .nav-link', true);
 
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
-      })
+      // Update active link
+      navlinks.forEach(item => item.classList.remove('active'));
+      this.classList.add('active');
 
-      this.classList.add('active')
-
+      // Close mobile menu
       if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+        navbar.classList.remove('navbar-mobile');
+        let toggle = select('.mobile-nav-toggle');
+        toggle.classList.toggle('bi-list');
+        toggle.classList.toggle('bi-x');
       }
 
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
+      // Special case: back to header/home
+      if (this.hash === '#header') {
+        header.classList.remove('header-top');
+        sections.forEach(s => s.classList.remove('section-show'));
+        localStorage.setItem('lastSection', '#header');
+        scrollto(this.hash);
         return;
       }
 
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function() {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
+      // Normal section navigation
+      header.classList.add('header-top');
 
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
+      setTimeout(() => {
+        sections.forEach(s => s.classList.remove('section-show'));
+        section.classList.add('section-show');
+      }, 350);
 
-      scrollto(this.hash)
+      scrollto(this.hash);
+
+      // Remember this section
+      localStorage.setItem('lastSection', this.hash);
     }
-  }, true)
+  }, true);
 
   /**
-   * Activate/show sections on load with hash links
+   * On page load - restore last section or default to About
    */
   window.addEventListener('load', () => {
+    const header = select('#header');
+    const sections = select('section', true);
+    const navlinks = select('#navbar .nav-link', true);
+
+    // Get saved section (or fallback to #about)
+    let targetHash = localStorage.getItem('lastSection') || '#about';
+
+    // URL hash has highest priority (direct link / bookmark)
     if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
+      targetHash = window.location.hash;
+    }
 
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
+    const targetSection = select(targetHash);
 
-        header.classList.add('header-top')
+    if (targetSection) {
+      // Show header bar
+      header.classList.add('header-top');
 
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
-          }
-        })
+      // Clean up everything first
+      sections.forEach(s => s.classList.remove('section-show'));
+      navlinks.forEach(link => link.classList.remove('active'));
 
-        setTimeout(function() {
-          initial_nav.classList.add('section-show')
-        }, 350);
+      // Activate correct section + nav link
+      targetSection.classList.add('section-show');
 
-        scrollto(window.location.hash)
+      const activeLink = select(`#navbar .nav-link[href="${targetHash}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
       }
+
+      // Small delay for smooth visual transition
+      setTimeout(() => {
+        scrollto(targetHash);
+      }, 100);
+    } else {
+      // Fallback if hash/section doesn't exist
+      localStorage.setItem('lastSection', '#about');
     }
   });
+
+  // ─────────────────────────────────────────────────────────────
+  // The rest of your code (skills, sliders, isotope, lightbox, etc.)
+  // remains exactly the same ↓
+  // ─────────────────────────────────────────────────────────────
 
   /**
    * Skills animation
    */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
+  let skillsContent = select('.skills-content');
+  if (skillsContent) {
     new Waypoint({
-      element: skilsContent,
+      element: skillsContent,
       offset: '80%',
       handler: function(direction) {
         let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
+        progress.forEach(el => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%';
         });
       }
-    })
+    });
   }
 
   /**
@@ -166,20 +178,13 @@
       clickable: true
     },
     breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
+      320: { slidesPerView: 1, spaceBetween: 20 },
+      1200: { slidesPerView: 3, spaceBetween: 20 }
     }
   });
 
   /**
-   * Porfolio isotope and filter
+   * Portfolio isotope and filter
    */
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
@@ -190,31 +195,22 @@
       });
 
       let portfolioFilters = select('#portfolio-flters li', true);
-
       on('click', '#portfolio-flters li', function(e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
+        portfolioFilters.forEach(el => el.classList.remove('filter-active'));
         this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
+        portfolioIsotope.arrange({ filter: this.getAttribute('data-filter') });
       }, true);
     }
-
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Portfolio lightbox
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+  const portfolioLightbox = GLightbox({ selector: '.portfolio-lightbox' });
 
   /**
-   * Initiate portfolio details lightbox 
+   * Portfolio details lightbox
    */
   const portfolioDetailsLightbox = GLightbox({
     selector: '.portfolio-details-lightbox',
@@ -228,20 +224,13 @@
   new Swiper('.portfolio-details-slider', {
     speed: 400,
     loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
+    autoplay: { delay: 5000, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', type: 'bullets', clickable: true }
   });
 
   /**
-   * Initiate Pure Counter 
+   * Pure Counter
    */
   new PureCounter();
 
-})()
+})();
